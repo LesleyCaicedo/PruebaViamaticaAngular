@@ -2,3 +2,11 @@
    flex: 1 1 auto;
 }
   
+mat-toolbar {
+   background-color: rgb(230, 131, 255);
+}
+
+button:hover {
+   background-color: white;
+   color: black;
+}

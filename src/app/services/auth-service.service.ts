@@ -9,7 +9,7 @@ export class AuthServiceService {
 
   private dataSubject: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
   public data$: Observable<boolean> = this.dataSubject.asObservable();
-
+  
   apiUrl: string = 'http://localhost:5055/api/Auth';
 
   constructor(private http:HttpClient) { }
@@ -21,5 +21,9 @@ export class AuthServiceService {
 
   inicioSesion(usuario_correo:string, clave:string) {
     return this.http.get(`${this.apiUrl}/IniciarSesion?usuario_correo=${usuario_correo}&clave=${clave}`);
+  }
+
+  cerrarSesion(idUsuario:number) {
+    return this.http.get(`${this.apiUrl}/CerrarSesion?idUsuario=${idUsuario}`, { responseType: 'text' });
   }
  }

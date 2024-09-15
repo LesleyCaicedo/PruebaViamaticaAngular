@@ -1,21 +1,18 @@
-import { Component, OnInit } from '@angular/core';
-import { AuthServiceService } from './services/auth-service.service';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
-export class AppComponent implements OnInit {
+export class AppComponent {
   title = 'prueba-viamatica';
 
-  flag: boolean = false;
+  //flag: boolean = false;
 
-  constructor(private authService: AuthServiceService) {}
-
-  ngOnInit(): void {
-      this.authService.data$.subscribe(value => {
-        this.flag = value
-      })
-  }
+  // ngOnInit(): void {
+  //     this.authService.data$.subscribe(value => {
+  //       this.flag = value
+  //     })
+  // }
 }

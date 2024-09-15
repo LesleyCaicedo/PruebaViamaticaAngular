@@ -1,11 +1,11 @@
-<mat-toolbar color="primary">
-    <span>Mi Aplicación</span>
+<mat-toolbar *ngIf="!flag">
+    <span>Bienvenido a servicios de Usuario</span>
     <span class="spacer"></span>
-    <button mat-button>Inicio</button>
-    <button mat-button>Acerca</button>
-    <button mat-button>Contacto</button>
-    <button mat-icon-button aria-label="Carrito">
-      <mat-icon>shopping_cart</mat-icon>
+    <button mat-button routerLink="/inicio">Inicio</button>
+    <button mat-button>Dashboard</button>
+    <button mat-button>Mantenimineto</button>
+    <button mat-icon-button aria-label="Cerrar sesion" (click)="cerrarSesion()">
+      <mat-icon>logout</mat-icon>
     </button>
   </mat-toolbar>
   

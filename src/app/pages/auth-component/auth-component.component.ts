@@ -34,21 +34,20 @@ export class AuthComponentComponent implements OnInit, OnDestroy {
   onSubmit(): void {
     if (this.loginForm.valid) {
       const { username, password } = this.loginForm.value;
-      console.log('Username:', username);
-      console.log('Password:', password);
 
       this.authService.inicioSesion(username, password).subscribe((resp: any) => {
-        //console.log(resp.respuesta);
-
-
         if(resp.respuesta === "Sesion iniciada.") {
-          localStorage.setItem("Sesion", resp.usuario);
+          localStorage.setItem("sesion", JSON.stringify(resp.usuario));
 
           this.snackbar.open(`${resp.respuesta}`, 'Aceptar', {
             duration: 5000
           });
 
           this.router.navigate(['inicio']);
+        } else {
+          this.snackbar.open(`${resp.respuesta}`, 'Aceptar', {
+            duration: 5000
+          });
         }
       })
 

@@ -6,7 +6,8 @@ import { HomeComponentComponent } from './pages/home-component/home-component.co
 const routes: Routes = [
   { path: '', redirectTo: '/inicio', pathMatch: 'full' }, // Redireccionar al Home por defecto
   { path: 'inicio', component: HomeComponentComponent }, // Ruta para la página de inicio
-  { path: 'sesion', component: AuthComponentComponent }
+  { path: 'sesion', component: AuthComponentComponent },
+  { path: '**', redirectTo: 'inicio'}
 ];
 
 @NgModule({
