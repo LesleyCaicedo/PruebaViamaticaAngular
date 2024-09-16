@@ -13,4 +13,12 @@ export class UserServiceService {
   obtenerInfo(idUsuario:number) {
     return this.htt.get(`${this.apiUrl}/ObtenerInfo?idUsuario=${idUsuario}`);
   }
+
+  obtenerIndicadores() {
+    return this.htt.get(`${this.apiUrl}/ObtenerIndicadores`);
+  }
+
+  obtenerUsuarios() {
+    return this.htt.get(`${this.apiUrl}/ObtenerUsuarios`);
+  }
 }

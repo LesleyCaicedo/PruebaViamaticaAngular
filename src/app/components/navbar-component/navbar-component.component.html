@@ -1,9 +1,9 @@
 <mat-toolbar *ngIf="!flag">
-    <span>Bienvenido a servicios de Usuario</span>
+    <span>Umbrella Corporation S.A.</span>
     <span class="spacer"></span>
     <button mat-button routerLink="/inicio">Inicio</button>
-    <button mat-button>Dashboard</button>
-    <button mat-button>Mantenimineto</button>
+    <button mat-button routerLink="/indicadores" *ngIf="isAdmin">Dashboard</button>
+    <button mat-button routerLink="/mantenimiento">Mantenimiento</button>
     <button mat-icon-button aria-label="Cerrar sesion" (click)="cerrarSesion()">
       <mat-icon>logout</mat-icon>
     </button>

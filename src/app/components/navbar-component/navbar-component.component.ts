@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
 export class NavbarComponentComponent implements OnInit {
 
   flag: boolean = false;
+  isAdmin: boolean = false;
 
   constructor(private auth:AuthServiceService,
     private snackbar:MatSnackBar,
@@ -20,6 +21,10 @@ export class NavbarComponentComponent implements OnInit {
   ngOnInit(): void {
     this.authService.data$.subscribe(value => {
       this.flag = value
+    })
+
+    this.authService.admin$.subscribe(value => {
+      this.isAdmin = value
     })
   }
 

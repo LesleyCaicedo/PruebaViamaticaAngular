@@ -25,6 +25,14 @@ export class AuthComponentComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
       this.authService.isInLogin(true)
+
+      const sesion:any = localStorage.getItem("sesion")
+      const dataSesion = sesion ? JSON.parse(sesion) : null
+
+      if(dataSesion != null) {
+        this.router.navigate(['inicio'])
+      }
+      
   }
 
   ngOnDestroy(): void {
@@ -38,6 +46,10 @@ export class AuthComponentComponent implements OnInit, OnDestroy {
       this.authService.inicioSesion(username, password).subscribe((resp: any) => {
         if(resp.respuesta === "Sesion iniciada.") {
           localStorage.setItem("sesion", JSON.stringify(resp.usuario));
+
+          if(resp.usuario.rol === 'Admin') {
+            this.authService.isAdmin(true)
+          }
 
           this.snackbar.open(`${resp.respuesta}`, 'Aceptar', {
             duration: 5000
@@ -57,7 +69,6 @@ export class AuthComponentComponent implements OnInit, OnDestroy {
   }
 
   onRegister(): void {
-    // Implement registration navigation or logic here
-    console.log('Navigating to registration page...');
+    this.router.navigate(['registro'])
   }
 }

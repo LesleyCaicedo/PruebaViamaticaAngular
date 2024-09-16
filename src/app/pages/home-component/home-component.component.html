@@ -3,9 +3,10 @@
       <img src="assets/profile-logo.jpg" alt="User Image">
     </div>
     <div class="user-info-container">
-      <h1 *ngIf="usuario" class="user-welcome">Bienvenido, {{ usuario.usuario.usuario1 }}!</h1>
+      <h1 *ngIf="usuario" class="user-welcome">Bienvenido/a, {{ usuario.usuario.usuario1 }}!</h1>
       <div class="user-info">
         <p *ngIf="usuario"><strong>Correo:</strong> {{ usuario.usuario.correo }}</p>
+        <p *ngIf="usuario"><strong>Rol:</strong> {{ usuario.usuario.rol }}</p>
         <p *ngIf="usuario"><strong>Estado de cuenta:</strong> {{ usuario.usuario.estatus }}</p>
         <p *ngIf="usuario"><strong>Intentos fallidos de inicio de sesion:</strong> {{ usuario.usuario.intentosTotal }}</p>
         <p *ngIf="usuario"><strong>Ultima inicio de sesion:</strong> {{ usuario.sesion.fechaIngreso }}</p>
